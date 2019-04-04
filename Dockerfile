@@ -11,6 +11,7 @@ RUN npm run build
 
 # new FROM statements terminate the previous FROM statements
 FROM nginx
+EXPOSE 80
 COPY --from=builder /app/build /usr/share/nginx/html
 
 # default command starts the nginx-server, don't have to specify it

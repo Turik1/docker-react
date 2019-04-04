@@ -1,0 +1,10 @@
+# everytime travis sees that something has changes to the code when commiting new changes
+sudo: required
+services: 
+  - docker
+
+before_install:
+  - docker build -t turik/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run turik/docker-react -f npm run test -- --coverage
